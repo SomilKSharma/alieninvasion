@@ -38,7 +38,6 @@ class AlienInvasion:
                 if bullet.rect.bottom<=0:
                     self.bullets.remove(bullet)
             
-            print(len(self.bullets))
             
             
             self._update_screen()
@@ -78,9 +77,9 @@ class AlienInvasion:
             
     def _fire_bullet(self):
         """New bullet create and added"""
-        
-        new_bullet=Bullet(self)
-        self.bullets.add(new_bullet)
+        if len(self.bullets)<self.settings.bullets_allowed:
+            new_bullet=Bullet(self)
+            self.bullets.add(new_bullet)
 
     def _update_screen(self):
          #Redraw the screen
